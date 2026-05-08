@@ -3,12 +3,14 @@ const express = require("express");
 const cors = require("cors");
 
 const productosRoutes = require("./rutas/productos");
+const comentarioRoutes = require("./rutas/comentario");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/productos", productosRoutes);
 app.use("/imagenes", express.static("public/imagenes"));
+app.use("/api/comentario", comentarioRoutes);
 
 app.get("/", (req, res) => {
   res.send("API funcionando");
