@@ -28,4 +28,14 @@ router.post ('/', async (req, res) => {
 
 });
 
+router.get('/total', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT COUNT(*) FROM comentario_usuario');
+    res.json({ total: parseInt(result.rows[0].count) });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Error al obtener el total' });
+  }
+});
+
 module.exports = router;
