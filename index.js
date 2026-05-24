@@ -4,13 +4,13 @@ const cors = require("cors");
 
 const productosRoutes = require("./rutas/productos");
 const comentarioRoutes = require("./rutas/comentario");
-const loginRoute = require("./rutas/login");
+const loginRoutes = require("./rutas/login");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/productos", productosRoutes);
-app.use("/api/login", loginRoute);
+app.use("/api/login", loginRoutes);
 app.use("/imagenes", express.static("public/imagenes"));
 app.use("/api/comentario", comentarioRoutes);
 
